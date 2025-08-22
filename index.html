@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gyaan Tarang – Homepage</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f6f9; color:#333;">
+
+  <!-- Header -->
+  <header style="background:#2c3e50; color:white; padding:20px; text-align:center;">
+    <h1 style="margin:0; font-size:28px;">📘 Gyaan Tarang – Homepage</h1>
+  </header>
+
+  <!-- Search Bar Section -->
+  <section style="max-width:800px; margin:30px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+    <h2 style="margin-top:0; color:#2c3e50; font-size:22px;">🔍 Search</h2>
+    <form onsubmit="searchContent(event)" style="display:flex; gap:10px; margin-top:10px;">
+      <input type="search" id="q" name="q" placeholder="Type here…" 
+             style="flex:1; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;" />
+      <button type="submit" 
+              style="padding:10px 20px; background:#2c3e50; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px;">
+        Search
+      </button>
+    </form>
+  </section>
+
+  <!-- Archive Section -->
+  <section style="max-width:800px; margin:30px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+    <h2 style="margin-top:0; color:#2c3e50; font-size:22px;">📂 Content</h2>
+    
+    <!-- Category 1 -->
+    <div style="margin-bottom:20px;">
+      <h3 style="color:#34495e;">📌 Himachal Pradesh GK</h3>
+      <ul style="list-style:none; padding-left:15px; margin:10px 0;" id="archive-list">
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Geography</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal History</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Art and Culture</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Map</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Economy</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Polity</a></li>
+      </ul>
+    </div>
+
+    <!-- Category 2 -->
+    <div>
+      <h3 style="color:#34495e;">📌 UGC NET Exam</h3>
+      <ul style="list-style:none; padding-left:15px; margin:10px 0;" id="archive-list">
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">UGC NET – Paper 1</a></li>
+        <li class="item" style="margin:6px 0;"><a href="#" style="text-decoration:none; color:#2980b9; font-size:17px;">UGC NET Paper 2 – Political Science</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#2c3e50; color:white; text-align:center; padding:15px; margin-top:30px;">
+    <p style="margin:0;">&copy; 2025 Gyaan Tarang | All Rights Reserved</p>
+  </footer>
+
+  <!-- Inline JavaScript for Search -->
+  <script>
+    function searchContent(event) {
+      event.preventDefault(); // stop form submit
+      let query = document.getElementById("q").value.toLowerCase();
+      let items = document.querySelectorAll(".item");
+
+      items.forEach(item => {
+        let text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
