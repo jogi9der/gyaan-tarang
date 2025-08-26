@@ -1,15 +1,31 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gyaan Tarang </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyaan Tarang</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; }
+    header { background:#2c3e50; color:#fff; padding:15px; text-align:center; }
+    nav { background:#34495e; padding:10px; display:flex; justify-content:space-around; flex-wrap:wrap; }
+    nav a { color:white; text-decoration:none; margin:5px 10px; cursor:pointer; }
+    .container { padding:20px; }
+    .search-bar { margin:20px 0; text-align:center; }
+    .search-bar input { padding:8px; width:50%; border:1px solid #ccc; border-radius:4px; }
+    ul { list-style-type:none; padding-left:0; }
+    li { margin:5px 0; cursor:pointer; }
+    li ul { display:none; margin-left:20px; }
+    li.open > ul { display:block; }
+    .section-title { font-weight:bold; margin-top:20px; font-size:18px; color:#2c3e50; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f6f9; color:#333;">
+<body>
 
-  <!-- Header -->
- <!-- Header -->
-<header style="background:#2c3e50; color:white; padding:20px; text-align:center;">
+ <header style="background:#2c3e50; color:white; padding:20px; text-align:center;">
   <!-- Logo -->
   <img src="Logo.png" alt="Gyaan Tarang Logo" 
        style="height:60px; vertical-align:middle; margin-right:10px;" />
@@ -19,74 +35,173 @@
   </h1>
 </header>
 
+  <nav>
+    <a data-target="home">Home</a>
+    <a data-target="Himachal Pradesh GK & GS">Himachal Pradesh GK & GS</a>
+    <a data-target="NCERT Books">NCERT Books</a>
+    <a data-target="Political Science for UGC NET & Other Examination">Political Science</a>
+    <a data-target="UGC NET Paper 1">UGC NET Paper 1</a>
+  </nav>
 
-  <!-- Search Bar Section -->
-  <section style="max-width:800px; margin:30px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-    <h2 style="margin-top:0; color:#2c3e50; font-size:22px;">🔍 Search</h2>
-    <form onsubmit="searchContent(event)" style="display:flex; gap:10px; margin-top:10px;">
-      <input type="search" id="q" name="q" placeholder="Type here…" 
-             style="flex:1; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;" />
-      <button type="submit" 
-              style="padding:10px 20px; background:#2c3e50; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px;">
-        Search
-      </button>
-    </form>
-  </section>
-
-  <!-- Archive Section -->
-  <section style="max-width:800px; margin:30px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-    <h2 style="margin-top:0; color:#2c3e50; font-size:22px;">📂 Content</h2>
-    
-    <!-- Category 1 -->
-    <div style="margin-bottom:20px;">
-      <h3 style="color:#34495e;">📌 Himachal Pradesh GK</h3>
-      <ul style="list-style:none; padding-left:15px; margin:10px 0;" id="archive-list">
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Geography</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal History</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Art and Culture</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Map</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Economy</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">Himachal Polity</a></li>
-      </ul>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search anything...">
     </div>
 
-    <!-- Category 2 -->
-    <div>
-      <h3 style="color:#34495e;">📌 UGC NET Exam</h3>
-      <ul style="list-style:none; padding-left:15px; margin:10px 0;" id="archive-list">
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">UGC NET – Paper 1</a></li>
-        <li class="item" style="margin:6px 0;"><a href="https://youtube.com/@gyaantarang" style="text-decoration:none; color:#2980b9; font-size:17px;">UGC NET Paper 2 – Political Science</a></li>
-      </ul>
+    <div id="content">
+      <div class="section">
+        <div class="section-title">📂 Himachal Pradesh GK & GS</div>
+        <ul>
+          <li>📌 HP Geography</li>
+          <li>📌 HP Maps</li>
+          <li>📌 HP History</li>
+          <li>📌 HP Polity</li>
+          <li>📌 HP Economics</li>
+          <li>📌 HP Art and Culture</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📂 NCERT Books</div>
+        <ul>
+          <li>📌 History
+            <ul>
+              <li>Class 6 – Our Past – I</li>
+              <li>Class 7 – Our Past – II</li>
+              <li>Class 8 – Our Past – III</li>
+              <li>Class 9 – India and the Contemporary World – I</li>
+              <li>Class 10 – India and the Contemporary World – II</li>
+              <li>Class 11 – Themes in World History</li>
+              <li>Class 12 – Themes in Indian History – Part I, II, III</li>
+            </ul>
+          </li>
+          <li>📌 Geography
+            <ul>
+              <li>Class 6 – The Earth Our Habitat</li>
+              <li>Class 7 – Our Environment</li>
+              <li>Class 8 – Resource and Development</li>
+              <li>Class 9 – Contemporary India – I</li>
+              <li>Class 10 – Contemporary India – II</li>
+              <li>Class 11 – Fundamentals of Physical Geography, India: Physical Environment, Practical Work in Geography – I</li>
+              <li>Class 12 – Fundamentals of Human Geography, India: People and Economy, Practical Work in Geography – II</li>
+            </ul>
+          </li>
+          <li>📌 Civics / Political Science
+            <ul>
+              <li>Class 6 – Social and Political Life – I</li>
+              <li>Class 7 – Social and Political Life – II</li>
+              <li>Class 8 – Social and Political Life – III</li>
+              <li>Class 9 – Democratic Politics – I</li>
+              <li>Class 10 – Democratic Politics – II</li>
+              <li>Class 11 – Indian Constitution at Work, Political Theory</li>
+              <li>Class 12 – Contemporary World Politics, Politics in India Since Independence</li>
+            </ul>
+          </li>
+          <li>📌 Economics
+            <ul>
+              <li>Class 9 – Economics – I</li>
+              <li>Class 10 – Understanding Economic Development</li>
+              <li>Class 11 – Indian Economic Development, Statistics for Economics</li>
+              <li>Class 12 – Introductory Microeconomics, Introductory Macroeconomics</li>
+            </ul>
+          </li>
+          <li>📌 Science
+            <ul>
+              <li>Class 6 – Science</li>
+              <li>Class 7 – Science</li>
+              <li>Class 8 – Science</li>
+              <li>Class 9 – Science</li>
+              <li>Class 10 – Science</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📂 Political Science for UGC NET & Other Examination</div>
+        <ul>
+          <li>📌 PYQs</li>
+          <li>📌 Unit 1 – Political Theory</li>
+          <li>📌 Unit 2 – Political Thought</li>
+          <li>📌 Unit 3 – Indian Political Thought</li>
+          <li>📌 Unit 4 – Comparative Political Analysis</li>
+          <li>📌 Unit 5 – International Relations</li>
+          <li>📌 Unit 6 – India’s Foreign Policy</li>
+          <li>📌 Unit 7 – Political Institutions in India</li>
+          <li>📌 Unit 8 – Political Processes in India</li>
+          <li>📌 Unit 9 – Public Administration</li>
+          <li>📌 Unit 10 – Governance and Public Policy in India</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📂 UGC NET Paper 1</div>
+        <ul>
+          <li>📌 PYQs</li>
+          <li>📌 Unit 1 – Teaching Aptitude</li>
+          <li>📌 Unit 2 – Research Aptitude</li>
+          <li>📌 Unit 3 – Comprehension</li>
+          <li>📌 Unit 4 – Communication</li>
+          <li>📌 Unit 5 – Mathematical Reasoning and Aptitude</li>
+          <li>📌 Unit 6 – Logical Reasoning</li>
+          <li>📌 Unit 7 – Data Interpretation</li>
+          <li>📌 Unit 8 – Information and Communication Technology (ICT)</li>
+          <li>📌 Unit 9 – People, Development and Environment</li>
+          <li>📌 Unit 10 – Higher Education System</li>
+        </ul>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer style="background:#2c3e50; color:white; text-align:center; padding:15px; margin-top:30px;">
-    <p style="margin:0;">&copy; 2025 Gyaan Tarang | All Rights Reserved</p>
-  </footer>
-
-  <!-- Inline JavaScript for Search -->
   <script>
-    function searchContent(event) {
-      event.preventDefault(); // stop form submit
-      let query = document.getElementById("q").value.toLowerCase();
-      let items = document.querySelectorAll(".item");
+    // Expand/Collapse functionality
+    document.querySelectorAll("li").forEach(li => {
+      if (li.querySelector("ul")) {
+        li.addEventListener("click", function(e) {
+          e.stopPropagation();
+          li.classList.toggle("open");
+        });
+      }
+    });
 
+    // Navbar filter functionality
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".section");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        let target = this.getAttribute("data-target");
+        if (target === "home") {
+          sections.forEach(sec => sec.style.display = "block");
+        } else {
+          sections.forEach(sec => {
+            let title = sec.querySelector(".section-title").textContent.trim();
+            if (title.includes(target)) {
+              sec.style.display = "block";
+            } else {
+              sec.style.display = "none";
+            }
+          });
+        }
+      });
+    });
+
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+      let filter = this.value.toLowerCase();
+      let items = document.querySelectorAll("li, .section-title");
       items.forEach(item => {
-        let text = item.textContent.toLowerCase();
-        if (text.includes(query)) {
-          item.style.display = "block";
+        if(item.textContent.toLowerCase().includes(filter)) {
+          item.style.display = "";
         } else {
           item.style.display = "none";
         }
       });
-    }
+    });
   </script>
 
+  <footer style="background:#2c3e50; color:white; text-align:center; padding:10px; margin-top:20px;">
+    <p>&copy; 2025 Gyaan Tarang. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
-
-
-
-
-
