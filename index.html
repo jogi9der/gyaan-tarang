@@ -195,7 +195,7 @@ function togglePoliticalScience() {
 </script>
 <div class="section" style="background: #f9f9ff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 25px;">
   <div class="section-title" id="ugcToggle" style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: white; text-align:center; padding: 12px; border-radius: 10px; background: linear-gradient(90deg, #11998e, #38ef7d); cursor: pointer;">
-    📂 UGC NET Paper 1
+📂 UGC NET Paper 1
   </div>
 
   <ul id="ugcContent" style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; overflow: hidden; transition: max-height 0.5s ease;">
@@ -218,4 +218,81 @@ function togglePoliticalScience() {
     <li style="background: #ffffff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align:center; font-weight: bold; color:#34495e; transition: all 0.3s ease-in-out; border: 3px solid; border-image: linear-gradient(45deg, #27ae60, #2ecc71) 1;">📊 Unit 7 – Data Interpretation</li>
     <li style="background: #ffffff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align:center; font-weight: bold; color:#34495e; transition: all 0.3s ease-in-out; border: 3px solid; border-image: linear-gradient(45deg, #34495e, #2c3e50) 1;">💻 Unit 8 – ICT</li>
     <li style="background: #ffffff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align:center; font-weight: bold; color:#34495e; transition: all 0.3s ease-in-out; border: 3px solid; border-image: linear-gradient(45deg, #16a085, #27ae60) 1;">🌱 Unit 9 – People, Development &amp; Environment</li>
-    <li style="background: #ffffff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align:center; font-weight: bold; color:#34495e; transition: all 0.3s ease
+    <li style="background: #ffffff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align:center; font-weight: bold; color:#34495e; transition: all 0.3s ease-in-out; border: 3px solid; border-image: linear-gradient(45deg, #8e44ad, #3498db) 1;">🎓 Unit 10 – Higher Education System</li>
+  </ul>
+</div>
+
+<script>
+  const toggle = document.getElementById('ugcToggle');
+  const content = document.getElementById('ugcContent');
+
+  // Initially collapsed
+  content.style.maxHeight = '0';
+  content.style.overflow = 'hidden';
+
+  toggle.addEventListener('click', () => {
+    if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = '0';
+    }
+  });
+</script>
+
+  
+  
+    <script>
+    // Expand/Collapse functionality
+    document.querySelectorAll("li").forEach(li => {
+      if (li.querySelector("ul")) {
+        li.addEventListener("click", function(e) {
+          e.stopPropagation();
+          li.classList.toggle("open");
+        });
+      }
+    });
+
+    // Navbar filter functionality
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".section");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        let target = this.getAttribute("data-target").toLowerCase().trim();
+        if (target === "home") {
+          sections.forEach(sec => sec.style.display = "block");
+        } else {
+          sections.forEach(sec => {
+            let rawTitle = sec.querySelector(".section-title").textContent.trim();
+            // Clean title by removing leading emojis/special characters
+            let cleanTitle = rawTitle.replace(/^[^a-zA-Z0-9]+/, "").toLowerCase().trim();
+            if (cleanTitle.includes(target)) {
+              sec.style.display = "block";
+            } else {
+              sec.style.display = "none";
+            }
+          });
+        }
+      });
+    });
+
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+      let filter = this.value.toLowerCase();
+      // When searching, make sure all sections are visible first to search within them
+      sections.forEach(sec => sec.style.display = "block");
+      let items = document.querySelectorAll(".section li");
+      items.forEach(item => {
+        if(item.textContent.toLowerCase().includes(filter)) {
+          item.style.display = "";
+        } else {
+          // Hide only list items, not the section titles during search
+          item.style.display = "none";
+        }
+      });
+    });
+ </script>
+ <footer style="background:#2c3e50; color:white; text-align:center; padding:10px; margin-top:20px;">
+   <p>© 2025 Gyaan Tarang. All Rights Reserved.</p>
+ </footer>
+</body>
+</html>
